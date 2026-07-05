@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Norah Alswayed | Information Technology Graduate</title>
+<meta name="description" content="Portfolio of Norah Alswayed, an Information Technology graduate (Software Engineering track) based in Jeddah, Saudi Arabia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDF0E9;
+    --ink:#14202B;
+    --teal:#1F8A82;
+    --teal-dim:#1F8A821a;
+    --amber:#E2A63B;
+    --amber-dim:#E2A63B22;
+    --slate:#5B6670;
+    --line:#C9D0C7;
+    --white:#FFFFFF;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--teal);
+    font-weight:500;
+  }
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  ::selection{background:var(--amber);color:var(--ink);}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(237,240,233,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:60px;
+  }
+  .logo{
+    font-family:'IBM Plex Sans Condensed',sans-serif;
+    font-weight:700;font-size:1.05rem;
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo span{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:28px;height:28px;
+    background:var(--ink);color:var(--paper);
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;font-weight:600;
+  }
+  .navlinks{display:flex;gap:28px;font-size:0.9rem;}
+  .navlinks a{text-decoration:none;color:var(--slate);transition:color .15s;}
+  .navlinks a:hover{color:var(--teal);}
+  .navlinks{display:none;}
+  @media(min-width:640px){.navlinks{display:flex;}}
+
+  /* HERO */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    position:relative;
+    overflow:hidden;
+    padding:96px 0 72px;
+  }
+  .hero .wrap{position:relative;z-index:2;}
+  .hero .eyebrow{color:var(--amber);margin-bottom:18px;}
+  h1{
+    font-family:'IBM Plex Sans Condensed',sans-serif;
+    font-weight:700;
+    font-size:clamp(2.6rem,7vw,4.4rem);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+  }
+  .hero-sub{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.95rem;
+    letter-spacing:0.04em;
+    color:var(--teal);
+    margin-top:14px;
+  }
+  .hero-bio{
+    max-width:520px;
+    margin-top:22px;
+    color:#C7CFD3;
+    font-size:1.02rem;
+  }
+  .hero-cta{
+    display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 20px;
+    font-size:0.88rem;font-weight:600;
+    text-decoration:none;
+    border:1px solid transparent;
+    font-family:'IBM Plex Sans',sans-serif;
+    cursor:pointer;
+    transition:transform .15s, background .15s, border-color .15s;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--teal);color:var(--ink);}
+  .btn-primary:hover{background:#2AA69C;}
+  .btn-ghost{border-color:#3A4552;color:var(--paper);}
+  .btn-ghost:hover{border-color:var(--teal);}
+
+  .sparkline{
+    position:absolute;
+    right:-40px;bottom:-10px;
+    width:560px;max-width:70vw;
+    opacity:0.9;
+  }
+  .sparkline path.line{
+    fill:none;stroke:var(--teal);stroke-width:2.5;
+    stroke-dasharray:640;stroke-dashoffset:640;
+    animation:draw 1.8s ease forwards 0.3s;
+  }
+  .sparkline circle{
+    fill:var(--amber);
+    opacity:0;
+    animation:pop .4s ease forwards 1.9s;
+  }
+  .sparkline .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;fill:var(--amber);
+    opacity:0;
+    animation:pop .4s ease forwards 2.1s;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes pop{to{opacity:1;}}
+  @media(prefers-reduced-motion:reduce){
+    .sparkline path.line{animation:none;stroke-dashoffset:0;}
+    .sparkline circle,.sparkline .tag{animation:none;opacity:1;}
+  }
+  @media(max-width:640px){.sparkline{display:none;}}
+
+  section{padding:76px 0;}
+  .section-head{margin-bottom:40px;}
+  h2{
+    font-family:'IBM Plex Sans Condensed',sans-serif;
+    font-weight:700;
+    font-size:1.9rem;
+    margin-top:6px;
+  }
+
+  /* ABOUT */
+  .about-grid{
+    display:grid;grid-template-columns:1fr;gap:36px;
+  }
+  @media(min-width:760px){.about-grid{grid-template-columns:1.3fr 1fr;}}
+  .about-text p{color:var(--slate);margin-bottom:14px;max-width:52ch;}
+  .about-text p strong{color:var(--ink);}
+  .card{
+    border:1px solid var(--line);
+    background:var(--white);
+    padding:24px;
+  }
+  .card-row{
+    display:flex;justify-content:space-between;gap:12px;
+    padding:11px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:0.9rem;
+  }
+  .card-row:last-child{border-bottom:none;}
+  .card-row .k{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;color:var(--slate);text-transform:uppercase;padding-top:2px;}
+  .card-row .v{text-align:right;font-weight:500;}
+
+  /* WORK */
+  .table-head{
+    display:grid;grid-template-columns:2.2fr 2fr 1.6fr 1fr;
+    gap:16px;
+    padding:0 20px 12px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--slate);
+    border-bottom:1px solid var(--ink);
+  }
+  .row{
+    display:grid;grid-template-columns:2.2fr 2fr 1.6fr 1fr;
+    gap:16px;
+    padding:22px 20px;
+    border-bottom:1px solid var(--line);
+    align-items:start;
+    transition:background .15s;
+  }
+  .row:hover{background:var(--white);}
+  .row .proj h3{font-size:1.02rem;font-weight:600;margin-bottom:6px;}
+  .row .proj p{color:var(--slate);font-size:0.88rem;max-width:40ch;}
+  .row .stack{font-family:'IBM Plex Mono',monospace;font-size:0.8rem;color:var(--slate);}
+  .row .focus{font-size:0.88rem;color:var(--slate);}
+  .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;
+    padding:4px 9px;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .tag-complete{background:var(--teal-dim);color:var(--teal);}
+  .tag-building{background:var(--amber-dim);color:#9c7318;}
+
+  @media(max-width:700px){
+    .table-head{display:none;}
+    .row{grid-template-columns:1fr;gap:8px;padding:20px 0;}
+    .row .stack,.row .focus{font-size:0.82rem;}
+    .row .stack::before{content:"Stack: ";color:var(--ink);font-weight:600;}
+    .row .focus::before{content:"Focus: ";color:var(--ink);font-weight:600;}
+  }
+
+  /* SKILLS */
+  .skill-groups{display:flex;flex-direction:column;gap:28px;}
+  .skill-group-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;letter-spacing:0.05em;
+    color:var(--ink);
+    margin-bottom:12px;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .skill-group-label .letter{
+    background:var(--ink);color:var(--paper);
+    width:22px;height:22px;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:0.72rem;font-weight:600;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    border:1px solid var(--line);
+    background:var(--white);
+    padding:7px 13px;
+    font-size:0.85rem;
+  }
+
+  /* CERTS */
+  .cert{
+    display:flex;justify-content:space-between;gap:16px;
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+    flex-wrap:wrap;
+  }
+  .cert:last-child{border-bottom:none;}
+  .cert-left{display:flex;gap:12px;align-items:baseline;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;position:relative;top:-2px;}
+  .cert-title{font-weight:600;}
+  .cert-issuer{color:var(--slate);font-size:0.85rem;}
+  .cert-status{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--slate);text-transform:uppercase;letter-spacing:0.06em;}
+
+  /* CONTACT / FOOTER */
+  footer{
+    background:var(--ink);color:var(--paper);
+    padding:80px 0 40px;
+  }
+  footer .eyebrow{color:var(--amber);}
+  footer h2{color:var(--paper);}
+  .contact-line{
+    color:#C7CFD3;max-width:48ch;margin:16px 0 32px;
+  }
+  .contact-links{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px;}
+  .foot-bottom{
+    border-top:1px solid #2A3543;
+    padding-top:24px;
+    display:flex;justify-content:space-between;
+    font-size:0.78rem;color:#7B8894;
+    flex-wrap:wrap;gap:10px;
+  }
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><span>NA</span> Norah Alswayed</div>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Jeddah, Saudi Arabia</div>
+    <h1>Norah<br>Alswayed</h1>
+    <div class="hero-sub">IT GRADUATE · SOFTWARE ENGINEERING TRACK</div>
+    <p class="hero-bio">Recent Information Technology graduate from King Abdulaziz University, Software Engineering track. I like turning ideas into working software, and I'm still building my skills across development, data, and AI through hands-on projects and courses.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-primary">View Work</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+  <svg class="sparkline" viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg">
+    <path class="line" d="M0,170 C60,175 90,140 130,150 C170,160 190,100 240,110 C290,120 300,60 350,70 C400,80 420,40 480,45 C510,47 520,55 540,50"/>
+    <circle cx="540" cy="50" r="5"/>
+    <text class="tag" x="470" y="34">you are here</text>
+  </svg>
+</header>
+
+<main>
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Index · 01</div>
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>Recent Information Technology graduate from <strong>King Abdulaziz University</strong>, Software Engineering track, First Class Honors (4.9/5). I like building things end to end, from designing an interface to writing the logic behind it, and I'm still growing my skills in data and AI through hands-on courses.</p>
+          <div class="chips" style="margin-top:18px;">
+            <span class="chip">Leadership</span><span class="chip">Problem Solving</span><span class="chip">Teamwork</span><span class="chip">Time Management</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="card-row"><span class="k">Location</span><span class="v">Jeddah, KSA</span></div>
+          <div class="card-row"><span class="k">Education</span><span class="v">B.S. IT, KAU (4.9 GPA)</span></div>
+          <div class="card-row"><span class="k">Track</span><span class="v">Software Engineering</span></div>
+          <div class="card-row"><span class="k">Languages</span><span class="v">Arabic (Native) · English</span></div>
+          <div class="card-row"><span class="k">Status</span><span class="v">Open to opportunities</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Index · 02</div>
+        <h2>Experience</h2>
+      </div>
+      <div class="table-head">
+        <span>Role</span><span>Company</span><span>Focus</span><span>Period</span>
+      </div>
+      <div class="row reveal">
+        <div class="proj">
+          <h3>Web Developer Intern</h3>
+          <p>Built Arabic user interfaces and interactive forms with HTML, CSS, and Laravel; led frontend tasks and ran requirement-gathering sessions with stakeholders.</p>
+        </div>
+        <div class="stack">Innovation Lab</div>
+        <div class="focus">Frontend development</div>
+        <span class="tag mono" style="background:var(--teal-dim);color:var(--teal);">Summer 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Index · 03 · Project Log</div>
+        <h2>Featured Work</h2>
+      </div>
+
+      <div class="table-head">
+        <span>Project</span><span>Stack</span><span>Focus</span><span>Status</span>
+      </div>
+
+      <div class="row reveal">
+        <div class="proj">
+          <h3>Muqaddim: AI Feasibility &amp; Pitch Platform</h3>
+          <p>AI-powered platform that helps beginner entrepreneurs generate feasibility studies, financial analyses, and investor pitch decks.</p>
+        </div>
+        <div class="stack">OpenAI API · Flask · React/TS · Firebase</div>
+        <div class="focus">End-to-end AI product</div>
+        <span class="tag tag-complete">Complete</span>
+      </div>
+
+      <div class="row reveal">
+        <div class="proj">
+          <h3>Hotel Booking Cancellation Prediction</h3>
+          <p>Predictive model estimating the likelihood of hotel booking cancellations from historical data.</p>
+        </div>
+        <div class="stack">Python · Data Analysis</div>
+        <div class="focus">Applied ML</div>
+        <span class="tag tag-complete">Complete</span>
+      </div>
+
+      <div class="row reveal">
+        <div class="proj">
+          <h3>Maidanak App: UI/UX Design</h3>
+          <p>Designed 14+ interface screens focused on usability and user experience principles.</p>
+        </div>
+        <div class="stack">Figma</div>
+        <div class="focus">UI/UX design</div>
+        <span class="tag tag-complete">Complete</span>
+      </div>
+
+      <div class="row reveal">
+        <div class="proj">
+          <h3>"Shifa" Hospital System: Analysis &amp; Database Design</h3>
+          <p>Analyzed system requirements and workflows for King Abdulaziz University Hospital's records platform, then designed its database.</p>
+        </div>
+        <div class="stack">Systems Analysis · Database Design</div>
+        <div class="focus">Requirements engineering</div>
+        <span class="tag tag-complete">Complete</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Index · 04</div>
+        <h2>Skills</h2>
+      </div>
+      <div class="skill-groups">
+        <div class="reveal">
+          <div class="skill-group-label"><span class="letter">A</span> Programming &amp; Development</div>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">HTML/CSS</span><span class="chip">Laravel</span><span class="chip">SQL</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="skill-group-label"><span class="letter">B</span> Design &amp; Prototyping</div>
+          <div class="chips">
+            <span class="chip">Figma</span><span class="chip">UI/UX Design</span><span class="chip">Canva</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="skill-group-label"><span class="letter">C</span> Data &amp; AI</div>
+          <div class="chips">
+            <span class="chip">Excel</span><span class="chip">Tableau</span><span class="chip">OpenAI API</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="skill-group-label"><span class="letter">D</span> Tools &amp; Platforms</div>
+          <div class="chips">
+            <span class="chip">GitHub</span><span class="chip">Cisco Packet Tracer</span><span class="chip">Microsoft Office</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Index · 05</div>
+        <h2>Certifications</h2>
+      </div>
+      <div class="reveal">
+        <div class="cert">
+          <div class="cert-left"><span class="dot"></span>
+            <div><div class="cert-title">CCNA: Switching, Routing, and Wireless Essentials</div><div class="cert-issuer">Cisco Networking Academy, King Abdulaziz University</div></div>
+          </div>
+          <div class="cert-status">May 2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Index · 06</div>
+    <h2>Let's talk</h2>
+    <p class="contact-line">Open to entry-level opportunities in software development and IT, including Tamheer and graduate training programs. Reach out any time.</p>
+    <div class="contact-links">
+      <a href="mailto:norahalswayed@gmail.com" class="btn btn-primary">norahalswayed@gmail.com</a>
+      <a href="https://linkedin.com/in/norahalswayed" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Norah Alswayed</span>
+      <span>Jeddah, Saudi Arabia</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
