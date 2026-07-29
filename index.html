@@ -10,14 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#EDF0E9;
-    --ink:#14202B;
-    --teal:#1F8A82;
-    --teal-dim:#1F8A821a;
-    --amber:#E2A63B;
-    --amber-dim:#E2A63B22;
-    --slate:#5B6670;
-    --line:#C9D0C7;
+    --paper:#F3F3F1;
+    --ink:#17181A;
+    --teal:#3A3D42;
+    --teal-dim:#3A3D4214;
+    --amber:#8A8D91;
+    --amber-dim:#8A8D9122;
+    --slate:#6B6E73;
+    --line:#D9D9D6;
     --white:#FFFFFF;
     --radius:2px;
   }
@@ -77,14 +77,14 @@
 
   /* HERO */
   .hero{
-    background:var(--ink);
+    background:linear-gradient(135deg,#111214 0%,#2b2c2f 55%,#4a4d52 100%);
     color:var(--paper);
     position:relative;
     overflow:hidden;
     padding:96px 0 72px;
   }
   .hero .wrap{position:relative;z-index:2;}
-  .hero .eyebrow{color:var(--amber);margin-bottom:18px;}
+  .hero .eyebrow{color:#C9CACC;margin-bottom:18px;}
   h1{
     font-family:'IBM Plex Sans Condensed',sans-serif;
     font-weight:700;
@@ -96,7 +96,7 @@
     font-family:'IBM Plex Mono',monospace;
     font-size:0.95rem;
     letter-spacing:0.04em;
-    color:var(--teal);
+    color:#D8D9DB;
     margin-top:14px;
   }
   .hero-bio{
@@ -119,8 +119,8 @@
     transition:transform .15s, background .15s, border-color .15s;
   }
   .btn:hover{transform:translateY(-1px);}
-  .btn-primary{background:var(--teal);color:var(--ink);}
-  .btn-primary:hover{background:#2AA69C;}
+  .btn-primary{background:#EDEDEC;color:#17181A;}
+  .btn-primary:hover{background:#FFFFFF;}
   .btn-ghost{border-color:#3A4552;color:var(--paper);}
   .btn-ghost:hover{border-color:var(--teal);}
 
@@ -131,18 +131,18 @@
     opacity:0.9;
   }
   .sparkline path.line{
-    fill:none;stroke:var(--teal);stroke-width:2.5;
+    fill:none;stroke:#9DA0A4;stroke-width:2.5;
     stroke-dasharray:640;stroke-dashoffset:640;
     animation:draw 1.8s ease forwards 0.3s;
   }
   .sparkline circle{
-    fill:var(--amber);
+    fill:#F0F0EF;
     opacity:0;
     animation:pop .4s ease forwards 1.9s;
   }
   .sparkline .tag{
     font-family:'IBM Plex Mono',monospace;
-    font-size:11px;fill:var(--amber);
+    font-size:11px;fill:#F0F0EF;
     opacity:0;
     animation:pop .4s ease forwards 2.1s;
   }
@@ -255,7 +255,7 @@
     display:flex;justify-content:space-between;gap:16px;
     padding:18px 0;
     border-bottom:1px solid var(--line);
-    align-items:baseline;
+    align-items:flex-start;
     flex-wrap:wrap;
   }
   .cert:last-child{border-bottom:none;}
@@ -264,6 +264,32 @@
   .cert-title{font-weight:600;}
   .cert-issuer{color:var(--slate);font-size:0.85rem;}
   .cert-status{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--slate);text-transform:uppercase;letter-spacing:0.06em;}
+  .cert-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+  .cert-link{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;
+    color:var(--ink);text-decoration:none;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:1px;
+  }
+  .cert-link:hover{color:var(--slate);border-color:var(--slate);}
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;}
+  .cert-card{
+    display:block;text-decoration:none;color:inherit;
+    border:1px solid var(--line);background:var(--white);
+    overflow:hidden;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .cert-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,0.09);}
+  .cert-thumb-wrap{aspect-ratio:4/3;overflow:hidden;background:#EAEAE8;border-bottom:1px solid var(--line);}
+  .cert-thumb-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+  .cert-card-body{padding:14px 16px 16px;}
+  .cert-card-title{font-weight:600;font-size:0.92rem;line-height:1.3;}
+  .cert-card-issuer{color:var(--slate);font-size:0.8rem;margin-top:3px;}
+  .cert-card-date{
+    font-family:'IBM Plex Mono',monospace;font-size:0.68rem;
+    color:var(--slate);text-transform:uppercase;letter-spacing:0.05em;
+    margin-top:10px;display:block;
+  }
 
   /* CONTACT / FOOTER */
   footer{
@@ -310,6 +336,7 @@
     <p class="hero-bio">Recent Information Technology graduate from King Abdulaziz University, Software Engineering track. I like turning ideas into working software, and I'm still building my skills across development, data, and AI through hands-on projects and courses.</p>
     <div class="hero-cta">
       <a href="#work" class="btn btn-primary">View Work</a>
+      <a href="assets/norah-alswayed-resume.pdf" download class="btn btn-ghost">Download CV ↓</a>
       <a href="#contact" class="btn btn-ghost">Get in Touch</a>
     </div>
   </div>
@@ -427,27 +454,27 @@
       </div>
       <div class="skill-groups">
         <div class="reveal">
-          <div class="skill-group-label"><span class="letter">A</span> Programming &amp; Development</div>
+          <div class="skill-group-label"><span class="letter">A</span> Data &amp; Analytics</div>
           <div class="chips">
-            <span class="chip">Python</span><span class="chip">HTML/CSS</span><span class="chip">Laravel</span><span class="chip">SQL</span>
+            <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Power BI</span>
           </div>
         </div>
         <div class="reveal">
-          <div class="skill-group-label"><span class="letter">B</span> Design &amp; Prototyping</div>
+          <div class="skill-group-label"><span class="letter">B</span> Programming &amp; Networking</div>
           <div class="chips">
-            <span class="chip">Figma</span><span class="chip">UI/UX Design</span><span class="chip">Canva</span>
+            <span class="chip">Java</span><span class="chip">Cisco Packet Tracer</span><span class="chip">GitHub</span>
           </div>
         </div>
         <div class="reveal">
-          <div class="skill-group-label"><span class="letter">C</span> Data &amp; AI</div>
+          <div class="skill-group-label"><span class="letter">C</span> Design</div>
           <div class="chips">
-            <span class="chip">Excel</span><span class="chip">Tableau</span><span class="chip">OpenAI API</span>
+            <span class="chip">Figma</span><span class="chip">UI/UX Design</span><span class="chip">Canva</span><span class="chip">HTML/CSS</span>
           </div>
         </div>
         <div class="reveal">
-          <div class="skill-group-label"><span class="letter">D</span> Tools &amp; Platforms</div>
+          <div class="skill-group-label"><span class="letter">D</span> Productivity</div>
           <div class="chips">
-            <span class="chip">GitHub</span><span class="chip">Cisco Packet Tracer</span><span class="chip">Microsoft Office</span>
+            <span class="chip">Microsoft Office</span>
           </div>
         </div>
       </div>
@@ -460,13 +487,39 @@
         <div class="eyebrow">Index · 05</div>
         <h2>Certifications</h2>
       </div>
-      <div class="reveal">
-        <div class="cert">
-          <div class="cert-left"><span class="dot"></span>
-            <div><div class="cert-title">CCNA: Switching, Routing, and Wireless Essentials</div><div class="cert-issuer">Cisco Networking Academy, King Abdulaziz University</div></div>
+      <div class="cert-grid reveal">
+        <a href="assets/graduation-certificate.png" target="_blank" class="cert-card">
+          <div class="cert-thumb-wrap"><img src="assets/thumbs/graduation-thumb.jpg" alt="Graduation certificate"></div>
+          <div class="cert-card-body">
+            <div class="cert-card-title">Bachelor's Degree in Information Technology</div>
+            <div class="cert-card-issuer">King Abdulaziz University, First Class Honors (4.90/5)</div>
+            <span class="cert-card-date">Jun 2026</span>
           </div>
-          <div class="cert-status">May 2026</div>
-        </div>
+        </a>
+        <a href="assets/ccna-certificate.pdf" target="_blank" class="cert-card">
+          <div class="cert-thumb-wrap"><img src="assets/thumbs/ccna-thumb.jpg" alt="CCNA certificate"></div>
+          <div class="cert-card-body">
+            <div class="cert-card-title">CCNA: Switching, Routing, and Wireless Essentials</div>
+            <div class="cert-card-issuer">Cisco Networking Academy, King Abdulaziz University</div>
+            <span class="cert-card-date">May 2026</span>
+          </div>
+        </a>
+        <a href="assets/ibm-skillsbuild-certificate.pdf" target="_blank" class="cert-card">
+          <div class="cert-thumb-wrap"><img src="assets/thumbs/ibm-thumb.jpg" alt="IBM SkillsBuild certificate"></div>
+          <div class="cert-card-body">
+            <div class="cert-card-title">Generative AI and AI Agents</div>
+            <div class="cert-card-issuer">IBM SkillsBuild</div>
+            <span class="cert-card-date">Jul 2026</span>
+          </div>
+        </a>
+        <a href="assets/deloitte-certificate.pdf" target="_blank" class="cert-card">
+          <div class="cert-thumb-wrap"><img src="assets/thumbs/deloitte-thumb.jpg" alt="Deloitte certificate"></div>
+          <div class="cert-card-body">
+            <div class="cert-card-title">Data Analytics Job Simulation</div>
+            <div class="cert-card-issuer">Deloitte Australia, via Forage</div>
+            <span class="cert-card-date">Jun 2026</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
